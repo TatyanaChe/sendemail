@@ -18,9 +18,9 @@ class Test(unittest.TestCase):
     def setUp(self):
         driver_location = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + "/driver/chrome/v79/ubuntu/chromedriver"
         print(driver_location)
-        options = ChromeOptions()
-        options.add_argument("--start-maximized")
-        self.driver = webdriver.Chrome(driver_location, chrome_options=options)
+        opts = ChromeOptions()
+        opts.add_argument("--start-maximized")
+        self.driver = webdriver.Chrome(driver_location, options=opts)
         self.driver.implicitly_wait(20)
         self.driver.get('https://mail.ru')
         self.generated_subject = uuid.uuid4().hex # get a random string in a UUID fromat
